@@ -8,22 +8,22 @@ function InfoCard() {
       </div>
       <div className="info-body">
         <div className="words-container">
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
-          <div className="word">ABSOLUTE</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
+          <div className="word">ABSOLUTEER</div>
         </div>
       </div>
     </div>

@@ -7,7 +7,6 @@ function Information() {
       <InfoCard />
       <InfoCard />
       <InfoCard />
-      <InfoCard />
     </div>
   );
 }
