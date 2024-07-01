@@ -54,3 +54,24 @@
   border: none;
   cursor: pointer;
 }
+
+@media (max-width: 570px) {
+  .board {
+    width: 20em;
+    height: 20em;
+    gap: 0.5em
+  }
+
+  .board-row {
+    gap: 0.5em
+  }
+
+  .box-input {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .solve-btn {
+    font-size: 3em;
+  }
+}
