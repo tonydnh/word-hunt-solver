@@ -2,7 +2,7 @@ import './Board.css';
 
 function SolveButton() {
   return (
-    <button className="solve-btn" type="submit">
+    <button className="solve-btn">
       <span className="front">
         SOLVE
       </span>

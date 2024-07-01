@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './Board.css';
 import BoxInput from './BoxInput';
 import SolveButton from './SolveButton';
 
 function Board() {
   const [boxes, setBoxes] = useState(Array(16).fill(''));
+  const inputsRef = useRef([]);
 
+  function goToNextBox(index) {
+    if (index < inputsRef.current.length - 1) {
+      inputsRef.current[index + 1].focus();
+    }
+  }
 
   // Create the board
   const rows = [];
@@ -15,7 +21,7 @@ function Board() {
     for (let box = 0; box < boardSize; box++) {
       const index = row * boardSize + box;
       boxesInRow.push(
-        <BoxInput key={index} letter={boxes[index]} />
+        <BoxInput key={index} refs={inputsRef} goToNextBox={() => goToNextBox(index)} />
       );
     }
     rows.push(
