@@ -20,7 +20,7 @@
 .info-header {
   font-size: 1.75em;
   font-weight: bold;
-  color: #fff;
+  color: var(--rice-white);
 }
 
 .info-body {
@@ -43,5 +43,6 @@
 .word {
   font-size: 1em;
   letter-spacing: 1px;
+  color: var(--black);
 }
 
