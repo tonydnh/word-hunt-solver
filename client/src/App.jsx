@@ -3,7 +3,6 @@ import Board from './Board';
 import Information from './Information';
 
 function App() {
-
   return (
     <div className="container">
       <Board />

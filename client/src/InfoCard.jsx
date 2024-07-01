@@ -4,26 +4,11 @@ function InfoCard() {
   return (
     <div className="info-card">
       <div className="info-header">
-        8 Letters
+        How to Use
       </div>
       <div className="info-body">
         <div className="words-container">
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
-          <div className="word">ABSOLUTEER</div>
+          Input the board from your game and press the solve button for the answers!
         </div>
       </div>
     </div>

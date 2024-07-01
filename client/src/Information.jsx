@@ -5,8 +5,6 @@ function Information() {
   return (
     <div className="info">
       <InfoCard />
-      <InfoCard />
-      <InfoCard />
     </div>
   );
 }
