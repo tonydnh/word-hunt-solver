@@ -35,9 +35,9 @@
   font-size: 3.5em;
   font-weight: bold;
   text-shadow: 0px 1px 0 #fff; /* Engraved look */
-  background-image: url("./assets/wood.jpg");
+  background: #aae57a url("./assets/wood.jpg");
   background-size: cover;
-  filter: sepia(0.3) saturate(1.8) hue-rotate(45deg); /* Yellow tint */
+  filter: sepia(0.2) saturate(1.8) hue-rotate(45deg); /* Yellow tint */
   box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.2);
   border: 0.1px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--default-bdr-radius);
@@ -45,14 +45,21 @@
 
 .solve-btn {
   font-size: 4em;
-  padding: 0.2em  0.4em;
+  padding: 0.3em 0.6em;
   background-color: var(--light-green);
   border-radius: 1rem;
   font-weight: bold;
-  text-shadow: 0px 1px 0 #fff; /* Engraved look */
-  box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 1px 0 #fff; /* Engraved text look */
+  box-shadow: 0 6px rgba(144, 231, 137, 0.5);
+  /* Shadowed button instead of 3D */
+  /* box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.2); */
   border: none;
   cursor: pointer;
+}
+
+.solve-btn:active {
+  box-shadow: none;
+  transform: translateY(6px);
 }
 
 @media (max-width: 570px) {

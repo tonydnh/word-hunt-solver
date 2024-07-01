@@ -3,7 +3,9 @@ import './Board.css';
 function SolveButton() {
   return (
     <button className="solve-btn" type="submit">
-      SOLVE
+      <span className="front">
+        SOLVE
+      </span>
     </button>
   );
 }
