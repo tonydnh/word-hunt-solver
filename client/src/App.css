@@ -1,0 +1,51 @@
+:root {
+  --wallpaper-clr: #5f865b;
+  --container-clr: #73a570;
+  --dark-green: #455d44;
+  --light-green: #90e789;
+  --default-bdr-radius: 0.75rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--wallpaper-clr);
+  width: 100dvw;
+  height: 100dvh;
+  padding: 3vw;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0.5vw;
+  background-color: var(--dark-green);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 231, 137, 0.5);
+  border-radius: 1vw;
+  border: 0.1em solid var(--dark-green);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(144, 231, 137, 0.3);
+}
+
+.container {
+  width: 100%;
+  min-width: min-content;
+  height: auto;
+  background-color: var(--container-clr);
+  border-radius: var(--default-bdr-radius);
+  box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.2);
+  padding: 2em;
+  display: flex;
+  gap: 1.5em; /* Gap between board and results */
+}

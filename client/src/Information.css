@@ -1,0 +1,47 @@
+.info {
+  flex: 1;
+  background-color: var(--dark-green);
+  border: 6px solid var(--light-green);
+  border-radius: var(--default-bdr-radius);
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  max-height: 45em;
+  overflow-y: auto;
+}
+
+/* InfoCard */
+.info-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-header {
+  font-size: 1.75em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.info-body {
+  flex: 1; /* Body grows to fill space */
+  background-color: var(--light-green);
+  border-radius: 0.5rem;
+  border: 3px solid var(--wallpaper-clr);
+  padding: 0.5em;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.words-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.word {
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
