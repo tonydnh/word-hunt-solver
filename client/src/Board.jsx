@@ -1,16 +1,32 @@
-import { useState, useRef } from 'react';
+import { useRef, useEffect } from 'react';
+import axios from 'axios';
 import './Board.css';
 import BoxInput from './BoxInput';
 import SolveButton from './SolveButton';
 
 function Board() {
-  const [boxes, setBoxes] = useState(Array(16).fill(''));
   const inputsRef = useRef([]);
 
   function goToNextBox(index) {
-    if (index < inputsRef.current.length - 1) {
+    if (index < inputsRef.current.length - 1 && inputsRef.current[index + 1]) {
       inputsRef.current[index + 1].focus();
     }
+  }
+
+  function sendBoard() {
+    const invalidBoard = inputsRef.current.some((input) => input.value === '');
+    if (invalidBoard) {
+      return;
+    }
+
+    let letters = "";
+    inputsRef.current.forEach((input) => letters += input.value);
+    
+    axios.post('http://localhost:8080/board', {
+      board: letters
+    })
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error));
   }
 
   // Create the board
@@ -21,7 +37,11 @@ function Board() {
     for (let box = 0; box < boardSize; box++) {
       const index = row * boardSize + box;
       boxesInRow.push(
-        <BoxInput key={index} refs={inputsRef} goToNextBox={() => goToNextBox(index)} />
+        <BoxInput 
+          key={index} 
+          refs={inputsRef} 
+          goToNextBox={() => goToNextBox(index)} 
+        />
       );
     }
     rows.push(
@@ -33,12 +53,12 @@ function Board() {
 
   return (
     <>
-      <form className="form">
+      <div className="form">
         <div className="board">
           {rows}
         </div>
-        <SolveButton />
-      </form>
+        <SolveButton sendBoard={sendBoard} />
+      </div>
     </>
   );
 }

@@ -1,8 +1,11 @@
 import './Board.css';
 
-function SolveButton() {
+function SolveButton({ sendBoard }) {
   return (
-    <button className="solve-btn">
+    <button 
+      className="solve-btn"
+      onClick={sendBoard}
+    >
       <span className="front">
         SOLVE
       </span>

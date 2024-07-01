@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import './Board.css';
 
 function BoxInput({ refs, goToNextBox }) {
