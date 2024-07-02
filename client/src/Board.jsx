@@ -40,7 +40,7 @@ function Board({ sendResults }) {
     oldLettersRef.current = letters
 
     // Send the board to the backend to get the answers
-    axios.post('/word-hunt-solver/board', {
+    axios.post('http://localhost:8080/word-hunt-solver/board', {
       board: letters
     })
     .then(response => sendResults(response.data))
