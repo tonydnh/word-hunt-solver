@@ -76,6 +76,7 @@
   .box-input {
     width: 1.2em;
     height: 1.2em;
+    font-size: 2.5em;
   }
 
   .solve-btn {
@@ -97,6 +98,7 @@
   .box-input {
     width: 1.1em;
     height: 1.1em;
+    font-size: 2em;
   }
 
   .solve-btn {
