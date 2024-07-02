@@ -6,6 +6,7 @@ import SolveButton from './SolveButton';
 
 function Board({ sendResults }) {
   const inputsRef = useRef([]);
+  const oldLettersRef = useRef(""); // Prevent HTTP request for same consecutive boards
 
   function goToNextBox(index) {
     if (index < inputsRef.current.length - 1 && inputsRef.current[index + 1]) {
@@ -26,12 +27,18 @@ function Board({ sendResults }) {
     }
 
     let letters = "";
+
     inputsRef.current.forEach((input) => {
       if (input) { // Check if input is not null first
         letters += input.value;
       }
     });
-    
+
+    if (oldLettersRef.current === letters) {
+      return;
+    }
+    oldLettersRef.current = letters
+
     // Send the board to the backend to get the answers
     axios.post('http://localhost:8080/board', {
       board: letters

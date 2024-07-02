@@ -29,7 +29,11 @@ function BoxInput({ refs, goToNextBox, goToPreviousBox }) {
 
   return (
     <input
-      ref={(element) => refs.current.push(element)}
+      ref={(element) => {
+        if (!refs.current.includes(element)) {
+          refs.current.push(element)
+        }
+      }}
       type="text" 
       maxLength="1" 
       className="box-input"

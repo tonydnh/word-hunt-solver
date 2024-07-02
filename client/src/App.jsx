@@ -7,9 +7,14 @@ function App() {
   const [results, setResults] = useState(null);
 
   return (
-    <div className="container">
-      <Board sendResults={(data) => setResults(data)} />
-      <Information results={results} />
+    <div className="all">
+      <div className="container">
+        <Board sendResults={(data) => setResults(data)} />
+        <Information results={results} />
+      </div>
+      <div className="footer">
+        Created by Tony Dinh
+      </div>
     </div>
   )
 }
