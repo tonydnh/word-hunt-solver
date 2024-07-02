@@ -13,6 +13,12 @@ function Board({ sendResults }) {
     }
   }
 
+  function goToPreviousBox(index) {
+    if (index > 0 && inputsRef.current[index - 1]) {
+      inputsRef.current[index - 1].focus();
+    }
+  }
+
   function sendBoard() {
     const invalidBoard = inputsRef.current.some((input) => input && input.value === ''); // Check if input is not null first
     if (invalidBoard) {
@@ -46,6 +52,7 @@ function Board({ sendResults }) {
           key={index} 
           refs={inputsRef} 
           goToNextBox={() => goToNextBox(index)} 
+          goToPreviousBox={() => goToPreviousBox(index)}
         />
       );
     }
