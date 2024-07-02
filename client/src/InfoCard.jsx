@@ -1,14 +1,14 @@
 import './Information.css';
 
-function InfoCard() {
+function InfoCard({ header, body }) {
   return (
     <div className="info-card">
       <div className="info-header">
-        How to Use
+        {header}
       </div>
       <div className="info-body">
         <div className="words-container">
-          Input the board from your game and press the solve button for the answers!
+          {body}
         </div>
       </div>
     </div>

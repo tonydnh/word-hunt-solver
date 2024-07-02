@@ -3,7 +3,6 @@ from flask_cors import CORS
 import json
 
 app = Flask(__name__)
-# CORS(app, origins='*')
 CORS(app, origins='*')
 
 @app.route('/board', methods=['POST'])
@@ -31,12 +30,11 @@ def run_solver(board_letters):
         for col in range(len(board[0])):
             find_all_words(board, words_found, words, [], "", row, col)
 
-    return words_found
+    # Sort the words
+    for key in words_found:
+        words_found[key] = sorted(words_found[key])
 
-    # for key in words_found:
-    #     if len(words_found[key]) != 0:
-    #         print(f"\nNumber of Letters: {key}")
-    #         print(words_found[key])
+    return words_found
 
 # Use recursive backtracking to find all possible word combinations
 def find_all_words(board, words_found, words, visited_coords, current_word, row, col):

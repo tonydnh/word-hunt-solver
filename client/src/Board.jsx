@@ -1,10 +1,10 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import axios from 'axios';
 import './Board.css';
 import BoxInput from './BoxInput';
 import SolveButton from './SolveButton';
 
-function Board() {
+function Board({ sendResults }) {
   const inputsRef = useRef([]);
 
   function goToNextBox(index) {
@@ -14,18 +14,23 @@ function Board() {
   }
 
   function sendBoard() {
-    const invalidBoard = inputsRef.current.some((input) => input.value === '');
+    const invalidBoard = inputsRef.current.some((input) => input && input.value === ''); // Check if input is not null first
     if (invalidBoard) {
       return;
     }
 
     let letters = "";
-    inputsRef.current.forEach((input) => letters += input.value);
+    inputsRef.current.forEach((input) => {
+      if (input) { // Check if input is not null first
+        letters += input.value;
+      }
+    });
     
+    // Send the board to the backend to get the answers
     axios.post('http://localhost:8080/board', {
       board: letters
     })
-    .then(response => console.log(response.data))
+    .then(response => sendResults(response.data))
     .catch(error => console.log(error));
   }
 
