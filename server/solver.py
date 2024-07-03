@@ -5,11 +5,13 @@ import json
 app = Flask(__name__)
 CORS(app, origins='*')
 
+print("TEST I AM HERE")
+
 @app.route('/api/board', methods=['POST'])
 def process_board():
     json_data = request.data.decode("utf-8")
     board_letters = json.loads(json_data).get("board")
-
+    print("PROCES_BOARD RAN")
     print(f"What I got from frontend: {json_data}")
 
     words = run_solver(board_letters)
@@ -22,6 +24,7 @@ def process_board():
 # Parse the dictionary
 with open("dictionary.txt") as word_file:
   words = set(word_file.read().split())
+  print("PARSING DICTIONARY")
 
 def run_solver(board_letters):
     board = construct_board(board_letters)
