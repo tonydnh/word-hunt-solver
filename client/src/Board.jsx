@@ -43,7 +43,10 @@ function Board({ sendResults }) {
     axios.post('/api/board', {
       board: letters
     })
-    .then(response => sendResults(response.data))
+    .then(response => {
+      sendResults(response.data);
+      console.log(response.data);
+    })
     .catch(error => console.log(error));
   }
 
