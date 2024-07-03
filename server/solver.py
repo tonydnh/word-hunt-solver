@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import json
+import json, time
 
 app = Flask(__name__)
 CORS(app, origins='*')
@@ -9,10 +9,13 @@ CORS(app, origins='*')
 def process_board():
     json_data = request.data.decode("utf-8")
     board_letters = json.loads(json_data).get("board")
-    print("PROCES_BOARD RAN")
+
     print(f"What I got from frontend: {json_data}")
 
+    start = time.time()
     words = run_solver(board_letters)
+    end = time.time()
+    print(f"*****THE SOLVER TOOK {end - start} SECONDS TO RUN*****")
     words_json = {key: list(value) for key, value in words.items()}
 
     print(f"Words: {words_json}")

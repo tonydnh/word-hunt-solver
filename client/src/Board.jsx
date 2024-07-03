@@ -43,11 +43,7 @@ function Board({ sendResults }) {
     axios.post('https://word-hunt-solver-backend.onrender.com/api/board', {
       board: letters
     })
-    .then(response => {
-      sendResults(response.data);
-      console.log(response.data);
-      console.log(response);
-    })
+    .then(response => sendResults(response.data))
     .catch(error => console.log(error));
   }
 
