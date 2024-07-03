@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
 
@@ -10,8 +10,12 @@ def process_board():
     json_data = request.data.decode("utf-8")
     board_letters = json.loads(json_data).get("board")
 
+    print(f"What I got from frontend: {json_data}")
+
     words = run_solver(board_letters)
     words_json = {key: list(value) for key, value in words.items()}
+
+    print(f"Words: {words_json}")
 
     return jsonify(words_json)
 
