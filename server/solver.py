@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 CORS(app, origins='*')
 
-@app.route('/word-hunt-solver/board', methods=['POST'])
+@app.route('/api/board', methods=['POST'])
 def process_board():
     json_data = request.data.decode("utf-8")
     board_letters = json.loads(json_data).get("board")
