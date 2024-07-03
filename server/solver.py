@@ -32,7 +32,7 @@ def run_solver(board_letters):
     # Find all word combinations starting at each letter on the board
     for row in range(len(board)):
         for col in range(len(board[0])):
-            find_all_words(board, words_found, words, [], "", row, col)
+            find_all_words(board, words_found, words, set(), "", row, col)
 
     # Sort the words
     for key in words_found:
@@ -46,26 +46,22 @@ def find_all_words(board, words_found, words, visited_coords, current_word, row,
     directions = [[0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]]
 
     current_word += board[row][col]
-    added_to_visited = False
+    visited_coords.add((row, col))
 
     for direction in directions:
-        if not added_to_visited:
-            # Save the coordinates of visited letters in a sub path to not cross over it again
-            visited_coords.append([row, col])
-            added_to_visited = True
-
         next_row = row + direction[0]
         next_col = col + direction[1]
 
         # Only continue searching if next cell is in bounds and not a letter already visited
         # Max length word counted is 10
-        if [next_row, next_col] not in visited_coords and in_bounds(board, next_row, next_col) and len(current_word) < 10:
+        if (next_row, next_col) not in visited_coords and in_bounds(board, next_row, next_col) and len(current_word) < 10:
             find_all_words(board, words_found, words, visited_coords, current_word, next_row, next_col)
-            visited_coords.remove([next_row, next_col])
-            
+    
     # If found a word in the dictionary, save it, but keep going
     if len(current_word) >= 3 and current_word in words:
         words_found[len(current_word)].add(current_word)
+    
+    visited_coords.remove((row, col))
 
 def in_bounds(board, row, col):
     return row >= 0 and row < len(board) and col >= 0 and col < len(board[0])
