@@ -4,6 +4,8 @@ import './Board.css';
 import BoxInput from './BoxInput';
 import SolveButton from './SolveButton';
 
+const url = 'https://word-hunt-solver-backend.onrender.com/api/board'
+
 function Board({ sendResults }) {
   const inputsRef = useRef([]);
   const oldLettersRef = useRef(""); // Prevent HTTP request for same consecutive boards
@@ -40,7 +42,7 @@ function Board({ sendResults }) {
     oldLettersRef.current = letters
 
     // Send the board to the backend to get the answers
-    axios.post('https://word-hunt-solver-backend.onrender.com/api/board', {
+    axios.post(url, {
       board: letters
     })
     .then(response => sendResults(response.data))

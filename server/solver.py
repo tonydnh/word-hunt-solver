@@ -22,10 +22,6 @@ def process_board():
 
     return jsonify(words_json)
 
-# Parse the dictionary
-with open("dictionary.txt") as word_file:
-  words = set(word_file.read().split())
-
 def run_solver(board_letters):
     board = construct_board(board_letters)
 
@@ -35,7 +31,7 @@ def run_solver(board_letters):
     # Find all word combinations starting at each letter on the board
     for row in range(len(board)):
         for col in range(len(board[0])):
-            find_all_words(board, words_found, words, set(), "", row, col)
+            find_all_words(board, words_found, set(), "", row, col)
 
     # Sort the words
     for key in words_found:
@@ -44,7 +40,7 @@ def run_solver(board_letters):
     return words_found
 
 # Use recursive backtracking to find all possible word combinations
-def find_all_words(board, words_found, words, visited_coords, current_word, row, col):
+def find_all_words(board, words_found, visited_coords, current_word, row, col):
     # Right, down-right, down, down-left, left, up-left, up, up-right
     directions = [[0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]]
 
@@ -58,7 +54,8 @@ def find_all_words(board, words_found, words, visited_coords, current_word, row,
         # Only continue searching if next cell is in bounds and not a letter already visited
         # Max length word counted is 10
         if (next_row, next_col) not in visited_coords and in_bounds(board, next_row, next_col) and len(current_word) < 10:
-            find_all_words(board, words_found, words, visited_coords, current_word, next_row, next_col)
+            if trie.future_path_exists(current_word):
+                find_all_words(board, words_found, visited_coords, current_word, next_row, next_col)
     
     # If found a word in the dictionary, save it, but keep going
     if len(current_word) >= 3 and current_word in words:
@@ -82,5 +79,57 @@ def construct_board(board_letters):
 
     return board
 
-# if __name__ == "__main__":
-#     app.run(port=8080)
+class Trie:
+    def __init__(self):
+        self.root = TNode('', False, {})
+        self.num_words = 0
+        self.num_nodes = 1
+
+    def add_word(self, word):
+        curr_node = self.root
+
+        for char in word:
+            if char not in curr_node.children.keys():
+                # Add node if not present
+                curr_node.children[char] = TNode(char, False, {})
+                self.num_nodes += 1
+
+            # Move pointer to node representing char
+            curr_node = curr_node.children[char]
+
+        # Mark the last TNode as a word
+        curr_node.is_word = True
+        self.num_words += 1
+        
+    def future_path_exists(self, word):
+        return self.__future_path_exists_helper(self.root, word, 0)
+    
+    def __future_path_exists_helper(self, n, word, index):
+        curr = n.children.get(word[index])
+        if curr is not None:
+            if index == len(word) - 1:
+                return len(curr.children) != 0
+                
+            return self.__future_path_exists_helper(curr, word, index + 1)
+        else:
+            return False
+
+class TNode:
+    def __init__(self, letter, is_word, children):
+        self.letter = letter
+        self.is_word = is_word
+        self.children = children
+
+# Parse the dictionary
+with open("dictionary.txt") as word_file:
+    words = set(word_file.read().split())
+
+# Construct the trie
+trie = Trie()
+start = time.time()
+for word in words:
+    trie.add_word(word)
+print(f"***CONSTRUCTING THE TRIE TOOK {time.time() - start} SECONDS***")
+
+if __name__ == "__main__":
+    app.run(port=8080)
