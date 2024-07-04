@@ -5,7 +5,11 @@ import json, time
 app = Flask(__name__)
 CORS(app, origins='*')
 
-@app.route('/api/board', methods=['POST', 'GET'])
+@app.route('/api/ping', methods=['GET'])
+def ping():
+    return {"message": "pinged"}
+
+@app.route('/api/board', methods=['POST'])
 def process_board():
     json_data = request.data.decode("utf-8")
     print(f"REQUEST: {request}")
