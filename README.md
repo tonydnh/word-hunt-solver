@@ -14,16 +14,16 @@ The solver implements a recursive backtracking algorithm with a Trie data struct
 
 Enter the board from your game [here](https://word-hunt-solver.onrender.com/).
 
-![solver demo](https://github.com/tonydnh/word-hunt-solver/assets/88163609/80ca569a-50e8-4a1c-b430-6c543b7e22a7)
+![solver demo](https://github.com/tonydnh/word-hunt-solver/assets/88163609/3b5daa4c-355b-4177-a66a-9c0d0e517a2f)
 
 # Tech Stack
 
 Frontend:
-- React
+- React (HTML, CSS, JavaScript)
 - Vite
 
 Backend:
-- Flask
+- Flask (Python)
 
 The frontend and backend are deployed on [Render](https://render.com/).
 
