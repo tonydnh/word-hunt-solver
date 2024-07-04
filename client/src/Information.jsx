@@ -12,7 +12,7 @@ function Information({ results }) {
       <InfoCard
         key={0}
         header="How to Use" 
-        body="Input the board from your game and press the solve button for the answers!"
+        body="Input the board from your game or enter any random letters then press the solve button for the answers!"
       />
     );
     setCards(newCards);
