@@ -3,12 +3,10 @@ import './Board.css';
 function SolveButton({ sendBoard }) {
   return (
     <button 
-      className="solve-btn"
+      className="solve-btn btn"
       onClick={sendBoard}
     >
-      <span className="front">
-        SOLVE
-      </span>
+      SOLVE
     </button>
   );
 }

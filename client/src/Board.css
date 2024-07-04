@@ -45,20 +45,34 @@
   border-radius: var(--default-bdr-radius);
 }
 
-.solve-btn {
-  font-size: 4em;
+.btn-container {
+  display: flex;
+  gap: 1em;
+}
+
+.btn {
+  font-size: 3.1em;
   padding: 0.3em 0.6em;
-  background-color: var(--light-green);
   border-radius: 1rem;
   font-weight: bold;
-  color: var(--black);
   text-shadow: 0px 1px 0 #fff; /* Engraved text look */
-  box-shadow: 0 6px rgba(144, 231, 137, 0.5);
   border: none;
   cursor: pointer;
 }
 
-.solve-btn:active {
+.reset-btn {
+  background-color: var(--red);
+  color: var(--black);
+  box-shadow: 0 6px rgba(255, 104, 101, 0.4);
+}
+
+.solve-btn {
+  background-color: var(--light-green);
+  color: var(--black);
+  box-shadow: 0 6px rgba(144, 231, 137, 0.5);
+}
+
+.btn:active {
   box-shadow: none;
   transform: translateY(6px);
 }
@@ -80,8 +94,8 @@
     font-size: 2.5em;
   }
 
-  .solve-btn {
-    font-size: 3em;
+  .btn {
+    font-size: 2em;
   }
 }
 
@@ -89,11 +103,11 @@
   .board {
     width: 18em;
     height: 18em;
-    gap: 0.3em
+    gap: 0.35em
   }
 
   .board-row {
-    gap: 0.3em
+    gap: 0.35em
   }
 
   .box-input {
@@ -103,7 +117,7 @@
     padding: 8px;
   }
 
-  .solve-btn {
-    font-size: 2.8em;
+  .btn {
+    font-size: 1.8em;
   }
 }

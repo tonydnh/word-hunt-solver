@@ -3,8 +3,10 @@ import axios from 'axios';
 import './Board.css';
 import BoxInput from './BoxInput';
 import SolveButton from './SolveButton';
+import ResetButton from './ResetButton';
 
 const url = 'https://word-hunt-solver-backend.onrender.com/api/board'
+const localURL = 'http://localhost:8080/api/board'
 
 function Board({ sendResults }) {
   const inputsRef = useRef([]);
@@ -20,6 +22,14 @@ function Board({ sendResults }) {
     if (index > 0 && inputsRef.current[index - 1]) {
       inputsRef.current[index - 1].focus();
     }
+  }
+
+  function resetBoard() {
+    inputsRef.current.forEach((input) => {
+      if (input) {
+        input.value = '';
+      }
+    });
   }
 
   function sendBoard() {
@@ -78,7 +88,10 @@ function Board({ sendResults }) {
         <div className="board">
           {rows}
         </div>
-        <SolveButton sendBoard={sendBoard} />
+        <div className="btn-container">
+          <ResetButton resetBoard={resetBoard} />
+          <SolveButton sendBoard={sendBoard} />
+        </div>
       </div>
     </>
   );
