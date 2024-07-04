@@ -29,13 +29,13 @@ The frontend and backend are deployed on [Render](https://render.com/).
 
 # Challenges
 
-## General:
+## General
 
 As this is my first fullstack project, I faced numerous challenges that helped me learn a lot. When starting this project, I had only spent about two months learning frontend development using vanilla HTML, CSS and JavaScript. Jumping into React for the first time with a project was challenging, but it helped me learn in ways that no tutorial could. Setting up the API endpoint for the frontend and backend to communicate was another challenge as my knowledge of how the internet works was limited. Lastly, deploying the project was definitely the toughest challenge as I realized I did not know as much as I thought I did. I spent hours learning about static sites vs dynamic sites and setting up my API for deployment along with how to use PaaS's.
 
-## The Solver:
+## The Solver
 
-I wrote the solver back in March 2024 using Python as a small side project after learning about recursive backtracking in my data structures class. The first iteration of the algorithm was slow as it checked every single (valid) possible combination in a 4x4 board, leading to **1,626,160 recursive calls** for each solve. The solver took around 2-3 seconds to run on my local machine but took around **23 seconds** to run on the deployed site, which is too slow for users.
+I wrote the solver back in March 2024 using Python as a small side project after learning about recursive backtracking in my data structures class. The first iteration of the algorithm was slow as it checked every single (valid) possible combination in a 4x4 board, leading to <u>**1,626,160 recursive calls**</u> for each solve. The solver took around 2-3 seconds to run on my local machine but took around <u>**23 seconds**</u> to run on the deployed site, which is too slow for users.
 
 # How I Solved the Problem With the Solver
 
@@ -43,7 +43,7 @@ The problem with the solver was that it kept searching for combinations when the
 
 A trie is a tree data structure that stores nodes containing characters and lists of its children. When you walk a trie, you can spell out a word and each node has a property that tells you if a word ends at that node. Using a trie would solve my problem as I could check if the current combination was a dead end before making further recursive calls. I wrote a Node and Trie class from scratch that allowed me to build the trie from the dictionary and check for dead ends using DFS.
 
-Using a trie ended up solving my problem as it reduced the number of recursive calls from **1,626,160** to around **500-6000**, depending on the board. The speed for the solver on the deployed site improved from **23 seconds** to **0.01 seconds**. That's a ***99.5%+*** improvement on both ends.
+Using a trie ended up solving my problem as it reduced the number of recursive calls from <u>**1,626,160**</u> to around <u>**500-6000**</u>, depending on the board. The speed for the solver on the deployed site improved from <u>**23 seconds**</u> to <u>**0.01 seconds**</u>. That's a <u>***99.5%+***</u> improvement on both ends.
 
 # What I Learned
 
