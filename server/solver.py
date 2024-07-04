@@ -7,7 +7,7 @@ CORS(app, origins='*')
 
 @app.route('/api/ping', methods=['GET'])
 def ping():
-    return {"message": "pinged"}
+    return '', 200
 
 @app.route('/api/board', methods=['POST'])
 def process_board():
