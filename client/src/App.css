@@ -55,6 +55,10 @@ body {
   font-size: 1.15em;
 }
 
+.credits {
+  color: var(--rice-white);
+}
+
 @media (max-width: 1050px) {
   .container {
     flex-direction: column;

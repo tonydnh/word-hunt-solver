@@ -13,7 +13,9 @@ function App() {
         <Information results={results} />
       </div>
       <div className="footer">
-        Created by Tony Dinh
+        Created by <a className="credits" href="https://github.com/tonydnh" target="_blank" rel="noopener noreferrer">
+          Tony Dinh
+        </a>
       </div>
     </div>
   )
