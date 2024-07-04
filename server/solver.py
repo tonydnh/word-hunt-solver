@@ -12,16 +12,10 @@ def ping():
 @app.route('/api/board', methods=['POST'])
 def process_board():
     json_data = request.data.decode("utf-8")
-    print(f"REQUEST: {request}")
-    print(f"REQUEST.DATA: {request.data}")
-    print(f"JSON_DATA: {json_data}")
-    print(f"What I got from frontend: {json_data}")
     board_letters = json.loads(json_data).get("board")
 
-    start = time.time()
     words = run_solver(board_letters)
-    end = time.time()
-    print(f"*****THE SOLVER TOOK {end - start} SECONDS TO RUN*****")
+
     words_json = {key: list(value) for key, value in words.items()}
 
     return jsonify(words_json)
