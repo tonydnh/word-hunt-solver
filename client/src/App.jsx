@@ -13,8 +13,8 @@ function App() {
         <Information results={results} />
       </div>
       <div className="footer">
-        Created by <a className="credits" href="https://github.com/tonydnh" target="_blank" rel="noopener noreferrer">
-          Tony Dinh
+        made by <a className="credits" href="https://github.com/tonydnh" target="_blank" rel="noopener noreferrer">
+          tony
         </a>
       </div>
     </div>
