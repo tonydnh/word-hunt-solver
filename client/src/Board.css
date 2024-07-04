@@ -63,7 +63,7 @@
 .reset-btn {
   background-color: var(--red);
   color: var(--black);
-  box-shadow: 0 6px rgba(255, 104, 101, 0.4);
+  box-shadow: 0 6px rgba(255, 139, 129, 0.5);
 }
 
 .solve-btn {
