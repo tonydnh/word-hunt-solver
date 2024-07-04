@@ -5,8 +5,8 @@ import BoxInput from './BoxInput';
 import SolveButton from './SolveButton';
 import ResetButton from './ResetButton';
 
-const url = 'https://word-hunt-solver-backend.onrender.com/api/board'
-const localURL = 'http://localhost:8080/api/board'
+const url = 'https://word-hunt-solver-backend.onrender.com/api/board';
+const localURL = 'http://localhost:8080/api/board';
 
 function Board({ sendResults }) {
   const inputsRef = useRef([]);

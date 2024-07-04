@@ -8,9 +8,8 @@ CORS(app, origins='*')
 @app.route('/api/board', methods=['POST'])
 def process_board():
     json_data = request.data.decode("utf-8")
-    board_letters = json.loads(json_data).get("board")
-
     print(f"What I got from frontend: {json_data}")
+    board_letters = json.loads(json_data).get("board")
 
     start = time.time()
     words = run_solver(board_letters)
