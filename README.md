@@ -12,7 +12,7 @@ The solver implements a recursive backtracking algorithm with a Trie data struct
 
 # How to Use
 
-Enter the board from your game [here](https://word-hunt-solver.onrender.com/).
+Use the Word Hunt Solver [here](https://word-hunt-solver.onrender.com/).
 
 ![solver demo](https://github.com/tonydnh/word-hunt-solver/assets/88163609/3b5daa4c-355b-4177-a66a-9c0d0e517a2f)
 
