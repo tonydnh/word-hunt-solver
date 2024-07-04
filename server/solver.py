@@ -5,9 +5,12 @@ import json, time
 app = Flask(__name__)
 CORS(app, origins='*')
 
-@app.route('/api/board', methods=['POST'])
+@app.route('/api/board', methods=['POST', 'GET'])
 def process_board():
     json_data = request.data.decode("utf-8")
+    print(f"REQUEST: {request}")
+    print(f"REQUEST.DATA: {request.data}")
+    print(f"JSON_DATA: {json_data}")
     print(f"What I got from frontend: {json_data}")
     board_letters = json.loads(json_data).get("board")
 
