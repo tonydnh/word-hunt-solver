@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import json, time
+import json
 
 app = Flask(__name__)
 CORS(app, origins='*')
@@ -69,9 +69,9 @@ def construct_board(board_letters):
     board = []
     lettersIndex = 0
 
-    for row in range(4):
+    for _ in range(4):
         board_row = []
-        for col in range(4):
+        for _ in range(4):
             board_row.append(board_letters[lettersIndex])
             lettersIndex += 1
         board.append(board_row)
@@ -95,7 +95,9 @@ class Trie:
 
         # Mark the last TNode as a word
         curr_node.is_word = True
-        
+    
+    # Use depth-first search (DFS) to see if a node exists beyond a given word path
+    # Significantly reduces recursive calls in the recursive backtracking algorithm by 99%
     def future_path_exists(self, word):
         return self.__future_path_exists_helper(self.root, word, 0)
     
